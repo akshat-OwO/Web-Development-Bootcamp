@@ -2,6 +2,12 @@ h1{
     color: red;
     font-size: 200px;
 }
-img{
+/* img{
+    background-color: red;
+} */
+.bacon{
+    background-color: green;
+}
+.broccoli{
     background-color: red;
 }
