@@ -6,22 +6,9 @@ h1{
 }
 .top-container{
     background-color: #9CB4CC;
-    height: 200px;
-    width: 200px;
-    border: 10px solid;
-    padding: 20px;
 }
 .middle-container{
     background-color: red;
     height: 200px;
     width: 200px;
-    margin-left: 260px;
-    border: 20px solid;
-}
-.bottom-container{
-    background-color: yellow;
-    height: 200px;
-    width: 200px;
-    margin-left: 500px;
-    border: 10px solid;
 }
