@@ -2,7 +2,7 @@ body{
     margin: 0;
     text-align: center;
     font-family: 'Merriweather', serif;
-    font-size: 200%;
+    /* font-size: 200%; */
 }
 h1{
     color: #66BFBF;
@@ -44,4 +44,22 @@ a{
     position: absolute;
     right: 300px;
     top: 50px;
+}
+.skill-row{
+    width: 50%;
+    margin: 100px auto;
+}
+.skill-row *{
+    text-align: left;
+    line-height: 2;
+}
+.code-img{
+    width: 25%;
+    float: left;
+    margin-right: 30px;
+}
+.chilli-img{
+    width: 25%;
+    float: right;
+    margin-left: 30px;
 }
