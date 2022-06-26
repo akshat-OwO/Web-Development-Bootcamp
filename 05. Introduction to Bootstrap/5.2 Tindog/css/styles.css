@@ -12,6 +12,7 @@
     font-family: 'Montserrat-Black', sans-serif;
     size: 3.5rem;
     line-height: 1.5;
+    font-weight: bold;
 }
 
 /* Navigation Bar */
@@ -43,4 +44,30 @@
 .title-image{
     width: 60%;
     transform: rotateZ(20deg);
+}
+
+/* Features */
+
+.features{
+    text-align: center;
+    padding: 7% 15%;
+}
+.features-item{
+    line-height: 1.5;
+    padding: 5%;
+}
+.features-item h3{
+    font-family: "Monserrat-bold", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.features-item p{
+    color: #8f8f8f;
+}
+.features-icon{
+    color: #ef8172;
+    margin-bottom: 1rem;
+}
+.features-icon:hover{
+    color: #ff4c68;
 }
