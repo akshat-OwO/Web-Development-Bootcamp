@@ -8,6 +8,19 @@ app.get('/', (req, res) =>{
     res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/bmicalculator', (req, res) =>{
+    res.sendFile(__dirname + '/bmicalculator.html');
+});
+
+app.post('/bmicalculator', (req, res) =>{
+    let weight = req.body.weight;
+    let height = req.body.height;
+
+    let bmi = weight / (height ** 2);
+
+    res.send('BMI is ', bmi);
+});
+
 app.post('/', (req, res) =>{
     
     var num1 = Number(req.body.num1);
