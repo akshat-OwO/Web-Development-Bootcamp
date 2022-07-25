@@ -5,7 +5,13 @@ const app = express();
 app.get('/', (req, res) =>{
     const url = 'https://api.openweathermap.org/data/2.5/weather?q=London&appid=498ef0bbf7dfc787b385e476820cb6d9&units=metric';
     https.get(url, (response) =>{
-        console.log(response);
+        console.log(response.statusCode);
+
+        response.on('data', (data) =>{
+            const weatherData = JSON.parse(data);
+            const temp = weatherData.main.temp;
+            const description = weatherData.weather[0].description;
+        });
     });
     res.send('server is up and running');
 });
