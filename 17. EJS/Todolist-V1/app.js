@@ -3,31 +3,29 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+let newItems = ['Buy Food', 'Cook Food', 'Eat Food'];
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) =>{
     let today = new Date();
-    let currentDay = today.getDay();
-    let day = '';
-    if(currentDay == 0){
-        day = 'sunday';
-    } else if(currentDay == 1){
-        day = 'monday';
-    } else if(currentDay == 2){
-        day = 'tuesday';
-    } else if(currentDay == 3){
-        day = 'wednesday';
-    } else if(currentDay == 4){
-        day = 'thursday';
-    } else if(currentDay == 5){
-        day = 'friday';
-    } else{
-        day = 'saturday';
-    }
+    let options = {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long'
+    };
     
-    res.render('list', { kindOfDay: day });
+    let day = today.toLocaleDateString('en-Us', options);
+    
+    res.render('list', { kindOfDay: day, newListItems: newItems });
+});
+
+app.post('/', (req, res) =>{
+    let newItem = req.body.newItem;
+    newItems.push(newItem);
+    res.redirect('/');
 });
 
 app.listen(3000, () =>{
