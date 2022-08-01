@@ -54,6 +54,6 @@ app.get('*', (req, res) =>{
   res.status(404).render('404');
 });
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
 });
