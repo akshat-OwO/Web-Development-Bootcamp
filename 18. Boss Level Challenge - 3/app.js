@@ -33,7 +33,11 @@ app.get('/compose', (req, res) =>{
 
 app.get('/posts/:postTitle', (req, res) =>{
   const title = req.params.postTitle;
-  console.log(title);
+  posts.forEach(post =>{
+    if(post.title == title){
+      console.log('Match found');
+    }
+  });
 });
 
 app.post('/compose', (req, res) =>{
