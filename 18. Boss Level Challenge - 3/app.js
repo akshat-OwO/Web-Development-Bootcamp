@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const _ = require('lodash');
 const ejs = require("ejs");
 
 const posts = [];
@@ -32,10 +33,12 @@ app.get('/compose', (req, res) =>{
 });
 
 app.get('/posts/:postTitle', (req, res) =>{
-  const title = req.params.postTitle;
+  const title = _.lowerCase(req.params.postTitle);
   posts.forEach(post =>{
-    if(post.title == title){
+    if(_.lowerCase(post.title) === title){
       console.log('Match found');
+    } else{
+      console.log('Match not found');
     }
   });
 });
