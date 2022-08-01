@@ -37,8 +37,6 @@ app.get('/posts/:postTitle', (req, res) =>{
   posts.forEach(post =>{
     if(_.lowerCase(post.title) === title){
       res.render('post', {title: post.title, body: post.body});
-    } else{
-      console.log('Match not found');
     }
   });
 });
