@@ -31,6 +31,11 @@ app.get('/compose', (req, res) =>{
   res.render('compose');
 });
 
+app.get('/posts/:postTitle', (req, res) =>{
+  const title = req.params.postTitle;
+  console.log(title);
+});
+
 app.post('/compose', (req, res) =>{
   const post = {
     title: req.body.title,
@@ -39,11 +44,6 @@ app.post('/compose', (req, res) =>{
   posts.push(post);
   res.redirect('/');
 });
-
-
-
-
-
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
