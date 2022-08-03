@@ -17,12 +17,12 @@ const fruitSchema = new mongoose.Schema({
 
 const Fruit = mongoose.model('Fruit', fruitSchema);
 
-const fruit = new Fruit({
-    rating: 10,
-    review: 'Peaches are so yummy'
-});
+// const fruit = new Fruit({
+//     rating: 10,
+//     review: 'Peaches are so yummy'
+// });
 
-fruit.save();
+// fruit.save();
 
 const personSchema = new mongoose.Schema ({
     name: String,
@@ -54,7 +54,7 @@ const banana = new Fruit({
     review: 'weird texture'
 });
 
-person.save();
+// person.save();
 
 // Fruit.insertMany([kiwi, orange, banana], (err) =>{
 //     if(err){
@@ -72,5 +72,29 @@ Fruit.find((err, fruits) =>{
         fruits.forEach(fruit =>{
             console.log(fruit.name);
         });
+    }
+});
+
+// Fruit.updateOne({_id: "62ea747e52a68844dc80e4d4"}, {name: 'peach'}, (err) =>{
+//     if(err){
+//         console.log(err);
+//     } else{
+//         console.log('Successfully updated the document');
+//     }
+// });
+
+// Fruit.deleteOne({name: 'peach'}, (err) =>{
+//     if(err){
+//         console.log(err);
+//     } else{
+//         console.log('Successfully deleted the document');
+//     }
+// });
+
+Person.deleteMany({name: 'John'}, (err) =>{
+    if(err){
+        console.log(err);
+    } else{
+        console.log('Successfully deleted John');
     }
 });
