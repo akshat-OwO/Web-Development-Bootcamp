@@ -2,7 +2,7 @@ html {
   background-color: #E4E9FD;
   background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
   min-height: 1000px;
-  font-family: 'verdana';
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h1 {
@@ -24,7 +24,7 @@ h1 {
 }
 
 .item {
-  min-height: 70px;
+  min-height: 50px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #F1F1F1;

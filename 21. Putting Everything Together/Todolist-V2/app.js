@@ -54,16 +54,14 @@ app.get('/work', (req, res) =>{
 });
 
 app.post('/', (req, res) =>{
-    let newItem = req.body.newItem;
+    let itemName = req.body.newItem;
 
-    if(req.body.list === 'Work'){
-        workItems.push(newItem);
-        res.redirect('/work');
-    } else{
-        newItems.push(newItem);
-        res.redirect('/');
-    }
+    const item = new Item({
+        name: itemName
+    });
 
+    item.save();
+    res.redirect('/');
 });
 
 app.post('/work', (req, res) =>{
