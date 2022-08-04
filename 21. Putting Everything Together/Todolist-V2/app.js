@@ -71,6 +71,19 @@ app.post('/work', (req, res) =>{
     res.redirect('/work');
 });
 
+app.post('/delete', (req, res) =>{
+    const checkedItemId = req.body.checkbox;
+    console.log(checkedItemId);
+    Item.findByIdAndRemove(checkedItemId, (err) =>{
+        if(!err){
+            console.log('Successfully deleted');
+            res.redirect('/');
+        } else{
+            console.log(err);
+        }
+    });
+});
+
 app.listen(3000, () =>{
     console.log('Server is up and running');
 });
