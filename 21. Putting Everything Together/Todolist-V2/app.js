@@ -31,17 +31,22 @@ const third = new Item({
 
 const defaultItems = [first, second, third];
 
-Item.insertMany(defaultItems, (err) =>{
-    if(err){
-        console.log(err);
-    } else{
-        console.log('Successfully added defaultItems');
-    }
-});
-
 app.get('/', (req, res) =>{
 
-    res.render('list', { listTitle: "Today", newListItems: newItems });
+    Item.find((err, items) =>{
+        if(items.length === 0){
+            Item.insertMany(defaultItems, (err) =>{
+                if(err){
+                    console.log(err);
+                } else{
+                    console.log('Successfully added defaultItems');
+                }
+            });
+            res.redirect('/');
+        } else{
+            res.render('list', { listTitle: "Today", newListItems: items });
+        }
+    });
 });
 
 app.get('/work', (req, res) =>{
