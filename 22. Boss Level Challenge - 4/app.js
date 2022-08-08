@@ -41,13 +41,20 @@ app.get('/compose', (req, res) =>{
   res.render('compose');
 });
 
-app.get('/posts/:postTitle', (req, res) =>{
-  const title = _.lowerCase(req.params.postTitle);
-  posts.forEach(post =>{
-    if(_.lowerCase(post.title) === title){
-      res.render('post', {title: post.title, body: post.body});
+app.get('/posts/:id', (req, res) =>{
+  const id = req.params.id;
+
+  Blog.findOne({_id: id}, (err, foundBlog) =>{
+    if(!err){
+      res.render('post', {title: foundBlog.title, body: foundBlog.body});
     }
   });
+
+  // posts.forEach(post =>{
+  //   if(_.lowerCase(post.title) === title){
+  //     res.render('post', {title: post.title, body: post.body});
+  //   }
+  // });
 });
 
 app.post('/compose', (req, res) =>{
