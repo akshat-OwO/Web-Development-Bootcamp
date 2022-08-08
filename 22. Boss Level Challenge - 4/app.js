@@ -55,9 +55,11 @@ app.post('/compose', (req, res) =>{
     title: req.body.title,
     body: req.body.Post
   });
-  post.save();
-  posts.push(post);
-  res.redirect('/');
+  post.save((err) =>{
+    if(!err){
+      res.redirect('/');
+    }
+  });
 });
 
 app.get('*', (req, res) =>{
