@@ -50,6 +50,17 @@ app.route('/articles')
         });
     });
 
+app.route('/articles/:articleTitle')
+    .get((req, res) =>{
+        Article.findOne({title: req.params.articleTitle}, (err, foundList) =>{
+            if(foundList){
+                res.send(foundList);
+            } else{
+                res.send('No Articles matching that title was found');
+            }
+        });
+    });
+
 app.listen(3000, () =>{
     console.log('Server is running on port 3000');
 });
